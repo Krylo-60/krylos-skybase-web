@@ -5,17 +5,17 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
   <!-- Primary Meta Tags -->
-  <title>Krylo's Skybase • Official Web App</title>
-  <meta name="title" content="Krylo's Skybase • Official Web App">
-  <meta name="description" content="The central portal for KryloSMP, community Discord events, official SMP web store, custom AI bots, and YouTube video crew. Crafted by Krylo.">
+  <title>Krylo's Skybase • Official Creator Hub</title>
+  <meta name="title" content="Krylo's Skybase • Official Creator Hub">
+  <meta name="description" content="The central community hub for Krylo's YouTube video crew, verified artist & animator lounge, and custom AI tools. Crafted by Krylo.">
   <meta name="author" content="Krylo">
 
   <!-- Discord & Open Graph / Facebook -->
   <meta property="og:type" content="website">
-  <meta property="og:url" content="https://krylos-skybase-web.vercel.app">
-  <meta property="og:title" content="Krylo's Skybase • Official Web App">
-  <meta property="og:description" content="The official community web hub for Krylo's Skybase & KryloSMP. Crafted with pride by Krylo.">
-  <meta property="og:image" content="https://krylos-skybase-web.vercel.app/og-banner.png">
+  <meta property="og:url" content="https://krylo-60.github.io/krylos-skybase-web/">
+  <meta property="og:title" content="Krylo's Skybase • Official Creator Hub">
+  <meta property="og:description" content="The central community hub for Krylo's YouTube video crew, verified artist & animator lounge, and custom AI tools. Crafted with pride by Krylo.">
+  <meta property="og:image" content="https://krylo-60.github.io/krylos-skybase-web/og-banner.png">
   <meta property="og:site_name" content="Krylo's Skybase">
 
   <!-- Discord Accent Color (Electric Cyan) -->
@@ -24,10 +24,10 @@
 
   <!-- Twitter / Discord Large Card -->
   <meta property="twitter:card" content="summary_large_image">
-  <meta property="twitter:url" content="https://krylos-skybase-web.vercel.app">
-  <meta property="twitter:title" content="Krylo's Skybase • Official Web App">
-  <meta property="twitter:description" content="Explore KryloSMP Minecraft Server, Discord Community, Web Store, and AI Bots. Built by Krylo.">
-  <meta property="twitter:image" content="https://krylos-skybase-web.vercel.app/og-banner.png">
+  <meta property="twitter:url" content="https://krylo-60.github.io/krylos-skybase-web/">
+  <meta property="twitter:title" content="Krylo's Skybase • Official Creator Hub">
+  <meta property="twitter:description" content="Official community portal for Krylo's YouTube projects, Film Crew, and creator lounge. Built by Krylo.">
+  <meta property="twitter:image" content="https://krylo-60.github.io/krylos-skybase-web/og-banner.png">
 
   <!-- Fonts & Icons -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -261,8 +261,8 @@
       transform: translateY(-2px);
     }
 
-    /* Live Server Banner */
-    .server-card {
+    /* Creator Spotlight Banner */
+    .spotlight-card {
       margin: 30px auto 60px;
       background: var(--card-bg);
       border: 1px solid var(--border);
@@ -278,11 +278,11 @@
       transition: border-color 0.3s;
     }
 
-    .server-card:hover {
+    .spotlight-card:hover {
       border-color: var(--border-hover);
     }
 
-    .server-info {
+    .spotlight-info {
       display: flex;
       align-items: center;
       gap: 18px;
@@ -303,36 +303,18 @@
       100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(16, 185, 129, 0); }
     }
 
-    .ip-box {
+    .studio-badge {
       font-family: 'JetBrains Mono', monospace;
-      font-size: 1.1rem;
+      font-size: 0.95rem;
       font-weight: 700;
       color: #38BDF8;
       background: rgba(15, 23, 42, 0.8);
-      border: 1px dashed rgba(56, 189, 248, 0.4);
+      border: 1px solid rgba(56, 189, 248, 0.4);
       padding: 10px 18px;
       border-radius: 10px;
       display: inline-flex;
       align-items: center;
-      gap: 12px;
-      user-select: all;
-    }
-
-    .copy-btn {
-      background: rgba(0, 229, 255, 0.15);
-      border: 1px solid var(--border);
-      color: var(--cyan);
-      padding: 10px 20px;
-      border-radius: 10px;
-      font-size: 0.9rem;
-      font-weight: 700;
-      cursor: pointer;
-      transition: all 0.2s;
-    }
-
-    .copy-btn:hover {
-      background: var(--cyan);
-      color: #07090E;
+      gap: 10px;
     }
 
     /* Grid Sections */
@@ -410,32 +392,10 @@
       text-decoration: none;
     }
 
-    /* Toast */
-    .toast {
-      position: fixed;
-      bottom: 24px;
-      right: 24px;
-      background: #10B981;
-      color: #FFFFFF;
-      padding: 12px 22px;
-      border-radius: 12px;
-      font-weight: 800;
-      font-size: 0.9rem;
-      display: none;
-      box-shadow: 0 10px 30px rgba(16, 185, 129, 0.4);
-      z-index: 100;
-      animation: fadeIn 0.3s;
-    }
-
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(10px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-
     @media (max-width: 768px) {
       .hero-title { font-size: 2.4rem; }
-      .server-card { flex-direction: column; text-align: center; }
-      .server-info { flex-direction: column; }
+      .spotlight-card { flex-direction: column; text-align: center; }
+      .spotlight-info { flex-direction: column; }
     }
   </style>
 </head>
@@ -454,7 +414,7 @@
         </div>
       </a>
       <div class="nav-badge">
-        <span>⚡</span> OFFICIAL WEB APP
+        <span>⚡</span> OFFICIAL CREATOR PORTAL
       </div>
     </div>
   </header>
@@ -467,31 +427,32 @@
       </div>
       <h2 class="hero-title">Welcome to Krylo's Skybase</h2>
       <p class="hero-subtitle">
-        The ultimate community & creator ecosystem. Play on KryloSMP, audition for upcoming YouTube video projects, and automate your server with custom AI bots.
+        The central community & content ecosystem. Audition for upcoming YouTube video projects, collaborate in our verified artist lounge, and experience custom server automation.
       </p>
 
       <div class="cta-group">
         <a href="https://discord.gg/1549875778575929446" target="_blank" class="btn btn-primary">
           <span>💬</span> Join Discord Community
         </a>
-        <a href="https://krylosmp-store.web.app/" target="_blank" class="btn btn-secondary">
-          <span>🛍️</span> Official SMP Store
+        <a href="https://krims-bot-dashboard.vercel.app" target="_blank" class="btn btn-secondary">
+          <span>🤖</span> Bot Dashboard
         </a>
       </div>
     </section>
 
-    <!-- Minecraft Server Connect Card -->
-    <div class="server-card">
-      <div class="server-info">
+    <!-- Studio Status Spotlight -->
+    <div class="spotlight-card">
+      <div class="spotlight-info">
         <div class="status-dot"></div>
         <div>
-          <div style="font-size: 0.8rem; text-transform: uppercase; color: var(--emerald); font-weight: 800; letter-spacing: 1px; margin-bottom: 4px;">MINECRAFT SMP SERVER ONLINE</div>
-          <div style="font-size: 1.15rem; font-weight: 800; color: #FFFFFF;">KryloSMP: Vanilla+ SMP Adventure</div>
+          <div style="font-size: 0.8rem; text-transform: uppercase; color: var(--emerald); font-weight: 800; letter-spacing: 1px; margin-bottom: 4px;">OFFICIAL CREATOR STUDIO ACTIVE</div>
+          <div style="font-size: 1.15rem; font-weight: 800; color: #FFFFFF;">Krylo's Production Deck &amp; Video Forge</div>
         </div>
       </div>
-      <div style="display: flex; align-items: center; gap: 12px; flex-wrap: wrap;">
-        <div class="ip-box" id="server-ip-text">krylosmp.falix.gg:29273</div>
-        <button class="copy-btn" id="copy-btn" onclick="copyIp()">📋 Copy IP</button>
+      <div>
+        <div class="studio-badge">
+          <span>🎬</span> Auditions Open in Discord (#crew-apply)
+        </div>
       </div>
     </div>
 
@@ -503,7 +464,7 @@
           <div class="card-icon">👑</div>
           <h3 class="card-title">Skybase Community Hub</h3>
           <p class="card-desc">
-            A verified community with custom animated Super Reactions, exclusive artist lounges, live announcements, and direct creator chat.
+            A verified community with custom animated Super Reactions, exclusive member ranks, live announcements, and direct creator chat.
           </p>
         </div>
         <a href="https://discord.gg/1549875778575929446" target="_blank" class="card-link">
@@ -517,7 +478,7 @@
           <div class="card-icon">🎬</div>
           <h3 class="card-title">Skybase Film Crew</h3>
           <p class="card-desc">
-            Audition for Krylo's next big YouTube videos, SMP cinematics, and event recordings inside the private Film Crew deck.
+            Audition for Krylo's upcoming YouTube videos, cinematic recordings, and private creator sessions inside our private crew lounge.
           </p>
         </div>
         <a href="https://discord.gg/1549875778575929446" target="_blank" class="card-link">
@@ -525,21 +486,21 @@
         </a>
       </div>
 
-      <!-- Card 3: SMP Store -->
+      <!-- Card 3: Artist & Animator Lounge -->
       <div class="feature-card">
         <div>
-          <div class="card-icon">💎</div>
-          <h3 class="card-title">Official SMP Web Store</h3>
+          <div class="card-icon">🎨</div>
+          <h3 class="card-title">Artist &amp; Animator Lounge</h3>
           <p class="card-desc">
-            Unlock server ranks, rare crate keys, custom particle trails, and cosmetic perks with real money or in-game KryloCoins.
+            Exclusive studio reserved for verified emoji artists and GIF animators to shape future server emotes and channel artwork.
           </p>
         </div>
-        <a href="https://krylosmp-store.web.app/" target="_blank" class="card-link">
-          Visit Web Store →
+        <a href="https://discord.gg/1549875778575929446" target="_blank" class="card-link">
+          Explore Creator Lounge →
         </a>
       </div>
 
-      <!-- Card 4: Krims Code AI & Custom Bots -->
+      <!-- Card 4: Krims Code AI Suite -->
       <div class="feature-card">
         <div>
           <div class="card-icon">🤖</div>
@@ -566,17 +527,5 @@
       </p>
     </div>
   </footer>
-
-  <div class="toast" id="toast">✅ Server IP Copied! Join krylosmp.falix.gg:29273</div>
-
-  <script>
-    function copyIp() {
-      navigator.clipboard.writeText('krylosmp.falix.gg:29273').then(() => {
-        const toast = document.getElementById('toast');
-        toast.style.display = 'block';
-        setTimeout(() => { toast.style.display = 'none'; }, 2500);
-      });
-    }
-  </script>
 </body>
 </html>
