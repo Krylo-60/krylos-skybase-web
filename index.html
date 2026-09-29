@@ -1,0 +1,582 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <!-- Primary Meta Tags -->
+  <title>Krylo's Skybase • Official Web App</title>
+  <meta name="title" content="Krylo's Skybase • Official Web App">
+  <meta name="description" content="The central portal for KryloSMP, community Discord events, official SMP web store, custom AI bots, and YouTube video crew. Crafted by Krylo.">
+  <meta name="author" content="Krylo">
+
+  <!-- Discord & Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://krylos-skybase-web.vercel.app">
+  <meta property="og:title" content="Krylo's Skybase • Official Web App">
+  <meta property="og:description" content="The official community web hub for Krylo's Skybase & KryloSMP. Crafted with pride by Krylo.">
+  <meta property="og:image" content="https://krylos-skybase-web.vercel.app/og-banner.png">
+  <meta property="og:site_name" content="Krylo's Skybase">
+
+  <!-- Discord Accent Color (Electric Cyan) -->
+  <meta name="theme-color" content="#00E5FF">
+  <meta name="msapplication-TileColor" content="#00E5FF">
+
+  <!-- Twitter / Discord Large Card -->
+  <meta property="twitter:card" content="summary_large_image">
+  <meta property="twitter:url" content="https://krylos-skybase-web.vercel.app">
+  <meta property="twitter:title" content="Krylo's Skybase • Official Web App">
+  <meta property="twitter:description" content="Explore KryloSMP Minecraft Server, Discord Community, Web Store, and AI Bots. Built by Krylo.">
+  <meta property="twitter:image" content="https://krylos-skybase-web.vercel.app/og-banner.png">
+
+  <!-- Fonts & Icons -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg: #07090e;
+      --card-bg: rgba(15, 23, 42, 0.75);
+      --border: rgba(0, 229, 255, 0.22);
+      --border-hover: rgba(0, 229, 255, 0.55);
+      --cyan: #00E5FF;
+      --gold: #FFD700;
+      --purple: #818CF8;
+      --text-main: #F8FAFC;
+      --text-sub: #94A3B8;
+      --emerald: #10B981;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+    }
+
+    body {
+      background-color: var(--bg);
+      color: var(--text-main);
+      min-height: 100vh;
+      overflow-x: hidden;
+      position: relative;
+    }
+
+    /* Ambient Background FX */
+    .bg-grid {
+      position: fixed;
+      inset: 0;
+      background-image: 
+        linear-gradient(rgba(0, 229, 255, 0.04) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0, 229, 255, 0.04) 1px, transparent 1px);
+      background-size: 48px 48px;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .glow-cyan {
+      position: fixed;
+      top: -150px;
+      left: 15%;
+      width: 600px;
+      height: 600px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(0, 229, 255, 0.14) 0%, transparent 70%);
+      filter: blur(80px);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .glow-purple {
+      position: fixed;
+      bottom: -100px;
+      right: 10%;
+      width: 650px;
+      height: 650px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(129, 140, 248, 0.12) 0%, transparent 70%);
+      filter: blur(90px);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .container {
+      max-width: 1140px;
+      margin: 0 auto;
+      padding: 0 24px;
+      position: relative;
+      z-index: 1;
+    }
+
+    /* Navigation */
+    header {
+      padding: 24px 0;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+      backdrop-filter: blur(12px);
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      background: rgba(7, 9, 14, 0.85);
+    }
+
+    .nav-wrapper {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .brand-icon {
+      width: 40px;
+      height: 40px;
+      border-radius: 12px;
+      background: linear-gradient(135deg, rgba(0, 229, 255, 0.2), rgba(129, 140, 248, 0.2));
+      border: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 20px;
+      box-shadow: 0 0 16px rgba(0, 229, 255, 0.25);
+    }
+
+    .brand-text h1 {
+      font-size: 1.15rem;
+      font-weight: 800;
+      letter-spacing: -0.5px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .brand-text h1 span {
+      color: var(--cyan);
+    }
+
+    .nav-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(0, 229, 255, 0.1);
+      border: 1px solid rgba(0, 229, 255, 0.35);
+      border-radius: 999px;
+      padding: 6px 14px;
+      font-size: 0.78rem;
+      font-weight: 700;
+      color: var(--cyan);
+    }
+
+    /* Hero Section */
+    .hero {
+      padding: 80px 0 60px;
+      text-align: center;
+    }
+
+    .author-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(15, 23, 42, 0.8);
+      border: 1px solid var(--border);
+      padding: 8px 18px;
+      border-radius: 999px;
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: #CBD5E1;
+      margin-bottom: 24px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    }
+
+    .author-pill strong {
+      color: var(--gold);
+    }
+
+    .hero-title {
+      font-size: 3.5rem;
+      font-weight: 900;
+      letter-spacing: -1.5px;
+      line-height: 1.15;
+      margin-bottom: 20px;
+      background: linear-gradient(135deg, #FFFFFF 20%, #E2E8F0 50%, var(--cyan) 90%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .hero-subtitle {
+      font-size: 1.2rem;
+      color: var(--text-sub);
+      max-width: 680px;
+      margin: 0 auto 36px;
+      line-height: 1.6;
+    }
+
+    .cta-group {
+      display: flex;
+      gap: 16px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 14px 26px;
+      border-radius: 12px;
+      font-size: 0.95rem;
+      font-weight: 800;
+      text-decoration: none;
+      transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+      cursor: pointer;
+      border: none;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, #00E5FF, #00B0FF);
+      color: #07090E;
+      box-shadow: 0 10px 25px rgba(0, 229, 255, 0.35);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 15px 35px rgba(0, 229, 255, 0.5);
+    }
+
+    .btn-secondary {
+      background: rgba(30, 41, 59, 0.7);
+      color: #FFFFFF;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+    }
+
+    .btn-secondary:hover {
+      background: rgba(51, 65, 85, 0.8);
+      border-color: rgba(255, 255, 255, 0.25);
+      transform: translateY(-2px);
+    }
+
+    /* Live Server Banner */
+    .server-card {
+      margin: 30px auto 60px;
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 28px 36px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 20px;
+      backdrop-filter: blur(16px);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+      transition: border-color 0.3s;
+    }
+
+    .server-card:hover {
+      border-color: var(--border-hover);
+    }
+
+    .server-info {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+    }
+
+    .status-dot {
+      width: 14px;
+      height: 14px;
+      background: var(--emerald);
+      border-radius: 50%;
+      box-shadow: 0 0 12px var(--emerald);
+      animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+      0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7); }
+      70% { transform: scale(1); box-shadow: 0 0 0 10px rgba(16, 185, 129, 0); }
+      100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(16, 185, 129, 0); }
+    }
+
+    .ip-box {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: #38BDF8;
+      background: rgba(15, 23, 42, 0.8);
+      border: 1px dashed rgba(56, 189, 248, 0.4);
+      padding: 10px 18px;
+      border-radius: 10px;
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      user-select: all;
+    }
+
+    .copy-btn {
+      background: rgba(0, 229, 255, 0.15);
+      border: 1px solid var(--border);
+      color: var(--cyan);
+      padding: 10px 20px;
+      border-radius: 10px;
+      font-size: 0.9rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .copy-btn:hover {
+      background: var(--cyan);
+      color: #07090E;
+    }
+
+    /* Grid Sections */
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 24px;
+      margin-bottom: 80px;
+    }
+
+    .feature-card {
+      background: var(--card-bg);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 20px;
+      padding: 32px;
+      backdrop-filter: blur(14px);
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .feature-card:hover {
+      border-color: var(--border);
+      transform: translateY(-4px);
+      box-shadow: 0 20px 40px rgba(0, 229, 255, 0.12);
+    }
+
+    .card-icon {
+      font-size: 32px;
+      margin-bottom: 16px;
+      display: inline-block;
+    }
+
+    .card-title {
+      font-size: 1.3rem;
+      font-weight: 800;
+      color: #FFFFFF;
+      margin-bottom: 10px;
+    }
+
+    .card-desc {
+      font-size: 0.95rem;
+      color: var(--text-sub);
+      line-height: 1.6;
+      margin-bottom: 24px;
+    }
+
+    .card-link {
+      font-size: 0.9rem;
+      font-weight: 800;
+      color: var(--cyan);
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: gap 0.2s;
+    }
+
+    .card-link:hover {
+      gap: 10px;
+    }
+
+    /* Footer */
+    footer {
+      border-top: 1px solid rgba(255, 255, 255, 0.06);
+      padding: 40px 0;
+      text-align: center;
+      color: var(--text-sub);
+      font-size: 0.9rem;
+    }
+
+    footer a {
+      color: var(--cyan);
+      text-decoration: none;
+    }
+
+    /* Toast */
+    .toast {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      background: #10B981;
+      color: #FFFFFF;
+      padding: 12px 22px;
+      border-radius: 12px;
+      font-weight: 800;
+      font-size: 0.9rem;
+      display: none;
+      box-shadow: 0 10px 30px rgba(16, 185, 129, 0.4);
+      z-index: 100;
+      animation: fadeIn 0.3s;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @media (max-width: 768px) {
+      .hero-title { font-size: 2.4rem; }
+      .server-card { flex-direction: column; text-align: center; }
+      .server-info { flex-direction: column; }
+    }
+  </style>
+</head>
+<body>
+  <div class="bg-grid"></div>
+  <div class="glow-cyan"></div>
+  <div class="glow-purple"></div>
+
+  <!-- Header -->
+  <header>
+    <div class="container nav-wrapper">
+      <a href="/" class="brand">
+        <div class="brand-icon">👑</div>
+        <div class="brand-text">
+          <h1>KRYLO'S <span>SKYBASE</span></h1>
+        </div>
+      </a>
+      <div class="nav-badge">
+        <span>⚡</span> OFFICIAL WEB APP
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Hero -->
+  <main class="container">
+    <section class="hero">
+      <div class="author-pill">
+        <span>🌐</span> OFFICIAL PORTAL • CRAFTED BY <strong>KRYLO</strong>
+      </div>
+      <h2 class="hero-title">Welcome to Krylo's Skybase</h2>
+      <p class="hero-subtitle">
+        The ultimate community & creator ecosystem. Play on KryloSMP, audition for upcoming YouTube video projects, and automate your server with custom AI bots.
+      </p>
+
+      <div class="cta-group">
+        <a href="https://discord.gg/1549875778575929446" target="_blank" class="btn btn-primary">
+          <span>💬</span> Join Discord Community
+        </a>
+        <a href="https://krylosmp-store.web.app/" target="_blank" class="btn btn-secondary">
+          <span>🛍️</span> Official SMP Store
+        </a>
+      </div>
+    </section>
+
+    <!-- Minecraft Server Connect Card -->
+    <div class="server-card">
+      <div class="server-info">
+        <div class="status-dot"></div>
+        <div>
+          <div style="font-size: 0.8rem; text-transform: uppercase; color: var(--emerald); font-weight: 800; letter-spacing: 1px; margin-bottom: 4px;">MINECRAFT SMP SERVER ONLINE</div>
+          <div style="font-size: 1.15rem; font-weight: 800; color: #FFFFFF;">KryloSMP: Vanilla+ SMP Adventure</div>
+        </div>
+      </div>
+      <div style="display: flex; align-items: center; gap: 12px; flex-wrap: wrap;">
+        <div class="ip-box" id="server-ip-text">krylosmp.falix.gg:29273</div>
+        <button class="copy-btn" id="copy-btn" onclick="copyIp()">📋 Copy IP</button>
+      </div>
+    </div>
+
+    <!-- Features Grid -->
+    <section class="grid">
+      <!-- Card 1: Discord Community -->
+      <div class="feature-card">
+        <div>
+          <div class="card-icon">👑</div>
+          <h3 class="card-title">Skybase Community Hub</h3>
+          <p class="card-desc">
+            A verified community with custom animated Super Reactions, exclusive artist lounges, live announcements, and direct creator chat.
+          </p>
+        </div>
+        <a href="https://discord.gg/1549875778575929446" target="_blank" class="card-link">
+          Open Discord Server →
+        </a>
+      </div>
+
+      <!-- Card 2: Film Crew -->
+      <div class="feature-card">
+        <div>
+          <div class="card-icon">🎬</div>
+          <h3 class="card-title">Skybase Film Crew</h3>
+          <p class="card-desc">
+            Audition for Krylo's next big YouTube videos, SMP cinematics, and event recordings inside the private Film Crew deck.
+          </p>
+        </div>
+        <a href="https://discord.gg/1549875778575929446" target="_blank" class="card-link">
+          Audition in #crew-apply →
+        </a>
+      </div>
+
+      <!-- Card 3: SMP Store -->
+      <div class="feature-card">
+        <div>
+          <div class="card-icon">💎</div>
+          <h3 class="card-title">Official SMP Web Store</h3>
+          <p class="card-desc">
+            Unlock server ranks, rare crate keys, custom particle trails, and cosmetic perks with real money or in-game KryloCoins.
+          </p>
+        </div>
+        <a href="https://krylosmp-store.web.app/" target="_blank" class="card-link">
+          Visit Web Store →
+        </a>
+      </div>
+
+      <!-- Card 4: Krims Code AI & Custom Bots -->
+      <div class="feature-card">
+        <div>
+          <div class="card-icon">🤖</div>
+          <h3 class="card-title">Krims Code AI Suite</h3>
+          <p class="card-desc">
+            Over 97 slash commands, MEE6-grade leveling, automated moderation, and custom Discord bot deployment powered by Google Gemini.
+          </p>
+        </div>
+        <a href="https://krims-bot-dashboard.vercel.app" target="_blank" class="card-link">
+          Manage Bot Dashboard →
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <p style="margin-bottom: 8px;">
+        © 2026 <strong>Krylo's Skybase</strong>. All Rights Reserved.
+      </p>
+      <p style="font-size: 0.82rem; color: #64748B;">
+        Crafted with ⚡ and pride by <strong>Krylo</strong> • Powered by modern web standards.
+      </p>
+    </div>
+  </footer>
+
+  <div class="toast" id="toast">✅ Server IP Copied! Join krylosmp.falix.gg:29273</div>
+
+  <script>
+    function copyIp() {
+      navigator.clipboard.writeText('krylosmp.falix.gg:29273').then(() => {
+        const toast = document.getElementById('toast');
+        toast.style.display = 'block';
+        setTimeout(() => { toast.style.display = 'none'; }, 2500);
+      });
+    }
+  </script>
+</body>
+</html>
