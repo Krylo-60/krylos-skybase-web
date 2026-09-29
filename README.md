@@ -8,7 +8,7 @@
   <a href="https://github.com/Krylo-60/krylos-skybase-web">
     <img src="https://img.shields.io/badge/%F0%9F%9A%80%20Author-Krylo-00e5ff?style=for-the-badge&labelColor=07090e" alt="Author: Krylo" />
   </a>
-  <a href="https://discord.gg/1549875778575929446">
+  <a href="https://discord.gg/qF3VSVYT9P">
     <img src="https://img.shields.io/badge/%F0%9F%92%AC%20Discord-Krylo's%20Skybase-5865F2?style=for-the-badge&labelColor=07090e" alt="Discord" />
   </a>
   <a href="https://krims-bot-dashboard.vercel.app">
