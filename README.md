@@ -1,7 +1,7 @@
 # 👑 Krylo's Skybase • Official Creator Hub
 
 <div align="center">
-  <img src="./og-banner.png" alt="Krylo's Skybase Web App Banner" width="100%" style="border-radius: 16px; border: 1px solid rgba(0, 229, 255, 0.4);" />
+  <img src="./skybase-portal-clean.png" alt="Krylo's Skybase Web App Banner" width="100%" style="border-radius: 16px; border: 1px solid rgba(0, 229, 255, 0.4);" />
 
   <br/><br/>
 
