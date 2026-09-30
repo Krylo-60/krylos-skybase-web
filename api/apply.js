@@ -12,6 +12,15 @@ export default async function handler(req, res) {
     return res.status(405).json({ error: 'Method not allowed' });
   }
 
+  // Applications Status Toggle
+  const APPLICATIONS_OPEN = false;
+  if (!APPLICATIONS_OPEN) {
+    return res.status(403).json({
+      ok: false,
+      error: 'Crew applications are currently closed as the video production roster is at full capacity. Please keep an eye on announcements for when auditions reopen!'
+    });
+  }
+
   const { name, contactMethod, contactValue, role, noDiscordPlan, experience } = req.body || {};
 
   if (!name || !name.trim()) {

@@ -620,7 +620,7 @@
       <!-- Live Nav Tabs -->
       <nav class="nav-tabs">
         <button class="tab-btn active" onclick="switchTab('feed')">📢 Announcements</button>
-        <button class="tab-btn" onclick="switchTab('apply')">🎬 Auditions (No Discord)</button>
+        <button class="tab-btn" onclick="switchTab('apply')">🎬 Auditions (Closed)</button>
         <button class="tab-btn" onclick="switchTab('crew')">🔐 Crew Portal</button>
         <button class="tab-btn" onclick="switchTab('hub')">🌐 Creator Hub</button>
       </nav>
@@ -656,66 +656,71 @@
       </div>
     </section>
 
-    <!-- PANE 2: FILM CREW AUDITIONS (FOR NON-DISCORD CREATORS) -->
+    <!-- PANE 2: FILM CREW AUDITIONS (STATUS & CASTING CALLS) -->
     <section id="pane-apply" class="pane">
       <div class="section-head">
-        <h2><span>🎬</span> Film Crew Audition Application</h2>
-        <div class="section-badge">Non-Discord Friendly</div>
+        <h2><span>🎬</span> Film Crew Audition Applications</h2>
+        <div class="section-badge" style="background: rgba(239, 68, 68, 0.15); color: #F87171; border: 1px solid rgba(239, 68, 68, 0.35);">🔴 Status: Closed (Roster Full)</div>
       </div>
 
-      <div class="form-card">
-        <p style="color: var(--text-sub); margin-bottom: 24px; font-size: 0.95rem; line-height: 1.6;">
-          Want to act in Krylo's upcoming YouTube videos, build map sets, or edit cinematics? <strong>You don't need a Discord account to join!</strong> Fill out this form and Krylo's team will contact you via your preferred platform.
+      <div class="form-card" style="border-color: rgba(239, 68, 68, 0.25);">
+        <!-- Closed Notice Banner -->
+        <div style="display: flex; align-items: center; gap: 14px; margin-bottom: 22px; padding-bottom: 18px; border-bottom: 1px solid rgba(255, 255, 255, 0.08);">
+          <div style="font-size: 2.2rem; background: rgba(239, 68, 68, 0.12); padding: 12px; border-radius: 14px; border: 1px solid rgba(239, 68, 68, 0.3);">🛑</div>
+          <div>
+            <h3 style="font-size: 1.3rem; font-weight: 800; color: #FFFFFF; margin-bottom: 4px;">Applications Are Currently Closed</h3>
+            <p style="font-size: 0.9rem; color: #F87171; font-weight: 600;">Production Team Roster Is At Full Capacity</p>
+          </div>
+        </div>
+
+        <p style="color: #CBD5E1; margin-bottom: 20px; font-size: 0.95rem; line-height: 1.7;">
+          Thank you for your interest in joining the official <strong><a href="https://www.youtube.com/@krylomcyt?sub_confirmation=1" target="_blank" style="color: var(--cyan); text-decoration: underline;">Krylo MC</a></strong> Team &amp; Video Production Crew! Our film roster is currently full for ongoing video shoots, and official applications are <strong>NOT</strong> being accepted right now.
         </p>
 
-        <form id="audition-form" onsubmit="submitAudition(event)">
-          <div class="form-group">
-            <label class="form-label">Your Name / Creator Handle <span>*</span></label>
-            <input type="text" id="app-name" class="form-input" placeholder="e.g. ShadowCrafter / Alex" required />
-          </div>
-
-          <div class="form-group">
-            <label class="form-label">Role You Are Auditioning For <span>*</span></label>
-            <select id="app-role" class="form-select" required>
-              <option value="" disabled selected>Select a production role...</option>
-              <option value="🎬 Video Actor / Voice Talent">🎬 Video Actor / Voice Talent</option>
-              <option value="🔨 Master Builder / Set Designer">🔨 Master Builder / Set Designer</option>
-              <option value="🎞️ Video Editor &amp; Cinematographer">🎞️ Video Editor &amp; Cinematographer</option>
-              <option value="🎨 Thumbnail &amp; Graphic Artist">🎨 Thumbnail &amp; Graphic Artist</option>
-              <option value="💡 Scriptwriter &amp; Storyline Architect">💡 Scriptwriter &amp; Storyline Architect</option>
-              <option value="⚡ Redstone &amp; Technical Stunt Lead">⚡ Redstone &amp; Technical Stunt Lead</option>
-            </select>
-          </div>
-
-          <div class="form-group">
-            <label class="form-label">Your Preferred Contact Method (Since No Discord) <span>*</span></label>
-            <div style="display: grid; grid-template-columns: 1fr 2fr; gap: 12px;">
-              <select id="app-contact-method" class="form-select">
-                <option value="YouTube">YouTube Handle</option>
-                <option value="Email">Email Address</option>
-                <option value="Instagram">Instagram</option>
-                <option value="Other">Other Method</option>
-              </select>
-              <input type="text" id="app-contact-val" class="form-input" placeholder="@YourHandle or your@email.com" required />
+        <!-- Future Roles Grid -->
+        <div style="background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.08); border-radius: 14px; padding: 20px; margin-bottom: 24px;">
+          <h4 style="color: #FFFFFF; font-size: 1rem; font-weight: 800; margin-bottom: 14px;">🎬 Production Roles (When Auditions Reopen):</h4>
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 12px;">
+            <div style="background: rgba(0, 0, 0, 0.25); padding: 12px 14px; border-radius: 10px; border: 1px solid rgba(255, 255, 255, 0.05);">
+              <span style="font-weight: 700; color: var(--gold);">🎭 Actors &amp; Participants</span>
+              <p style="font-size: 0.85rem; color: var(--text-sub); margin-top: 4px;">Playing roles in video challenges, manhunts, and scripted scenarios.</p>
+            </div>
+            <div style="background: rgba(0, 0, 0, 0.25); padding: 12px 14px; border-radius: 10px; border: 1px solid rgba(255, 255, 255, 0.05);">
+              <span style="font-weight: 700; color: var(--cyan);">🔨 Master Builders</span>
+              <p style="font-size: 0.85rem; color: var(--text-sub); margin-top: 4px;">Constructing video arenas, traps, and custom filming sets.</p>
+            </div>
+            <div style="background: rgba(0, 0, 0, 0.25); padding: 12px 14px; border-radius: 10px; border: 1px solid rgba(255, 255, 255, 0.05);">
+              <span style="font-weight: 700; color: #C4B5FD;">🎥 Replay Mod &amp; Camera</span>
+              <p style="font-size: 0.85rem; color: var(--text-sub); margin-top: 4px;">Capturing cinematic drone shots, smooth pans, and angles.</p>
+            </div>
+            <div style="background: rgba(0, 0, 0, 0.25); padding: 12px 14px; border-radius: 10px; border: 1px solid rgba(255, 255, 255, 0.05);">
+              <span style="font-weight: 700; color: #34D399;">🛡️ Staff &amp; Moderators</span>
+              <p style="font-size: 0.85rem; color: var(--text-sub); margin-top: 4px;">Chat moderation, community safety, and server order.</p>
             </div>
           </div>
+        </div>
 
-          <!-- THE SPECIAL NON-DISCORD COMMUNICATION QUESTION -->
-          <div class="form-group">
-            <label class="form-label">If you can't use Discord, how will you communicate with the crew? <span>*</span></label>
-            <p class="form-desc">Tell us what you can do to collaborate (e.g. YouTube comments/collab, Google Docs scripts, Email, in-game chat, etc.)</p>
-            <textarea id="app-nodiscord-plan" class="form-textarea" rows="3" placeholder="Explain your communication plan here... e.g. I check YouTube notifications daily and can collaborate via Google Docs on scripts and shoot schedules." required></textarea>
-          </div>
+        <!-- Want to star in a video right now? -->
+        <div style="background: rgba(0, 229, 255, 0.06); border: 1px solid rgba(0, 229, 255, 0.25); border-radius: 14px; padding: 20px; margin-bottom: 24px;">
+          <h4 style="color: var(--cyan); font-size: 1.05rem; font-weight: 800; margin-bottom: 8px; display: flex; align-items: center; gap: 8px;">
+            <span>📣</span> Want to Star in a Video Right Now? (No Discord Needed)
+          </h4>
+          <p style="color: #CBD5E1; font-size: 0.92rem; line-height: 1.6; margin-bottom: 12px;">
+            Krylo regularly recruits community members for one-off video sessions, battles, and challenges:
+          </p>
+          <ul style="color: var(--text-sub); font-size: 0.88rem; line-height: 1.8; padding-left: 20px; margin-bottom: 14px;">
+            <li>Subscribe to <strong><a href="https://www.youtube.com/@krylomcyt?sub_confirmation=1" target="_blank" style="color: var(--cyan); text-decoration: underline;">Krylo MC on YouTube</a></strong> and turn on all notifications.</li>
+            <li>Watch for open recruitment posts on YouTube and on our live <button onclick="switchTab('feed')" style="background: none; border: none; color: var(--cyan); font-weight: 700; text-decoration: underline; cursor: pointer; padding: 0;">Announcements Feed</button>.</li>
+            <li>When a recruitment call is published, follow the join instructions to jump into the recording!</li>
+          </ul>
+        </div>
 
-          <div class="form-group">
-            <label class="form-label">Previous Experience / Portfolio Link (Optional)</label>
-            <textarea id="app-exp" class="form-textarea" rows="2" placeholder="Links to your YouTube channel, previous videos, build screenshots, or portfolio..."></textarea>
-          </div>
-
-          <button type="submit" class="btn-submit" id="btn-submit-audition">
-            🚀 Submit Audition to Krylo's Team
-          </button>
-        </form>
+        <!-- Notification Banner -->
+        <div style="text-align: center; padding: 18px; background: rgba(255, 255, 255, 0.03); border: 1px dashed rgba(255, 255, 255, 0.15); border-radius: 12px;">
+          <p style="color: var(--text-sub); font-size: 0.9rem; margin: 0;">
+            🔔 <strong>An announcement will be posted in the portal as soon as official applications reopen!</strong>
+          </p>
+        </div>
       </div>
     </section>
 
