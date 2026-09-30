@@ -457,6 +457,187 @@
       margin-bottom: 8px;
     }
 
+    /* Personalized Holographic Crew Pass Card */
+    .crew-badge-card {
+      background: linear-gradient(135deg, rgba(15, 23, 42, 0.95), rgba(10, 15, 30, 0.98));
+      border: 1px solid rgba(0, 229, 255, 0.4);
+      border-radius: 20px;
+      padding: 30px;
+      margin-bottom: 26px;
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 15px 45px rgba(0, 0, 0, 0.65), 0 0 30px rgba(0, 229, 255, 0.12);
+    }
+
+    .crew-badge-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: linear-gradient(90deg, var(--cyan), #A29BFE, var(--gold));
+    }
+
+    .crew-badge-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-bottom: 16px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      margin-bottom: 22px;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .crew-badge-title {
+      font-size: 0.8rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      font-weight: 800;
+      color: var(--cyan);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .crew-profile-row {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      margin-bottom: 24px;
+      flex-wrap: wrap;
+    }
+
+    .crew-avatar-box {
+      width: 68px;
+      height: 68px;
+      border-radius: 18px;
+      background: linear-gradient(135deg, rgba(0, 229, 255, 0.15), rgba(162, 155, 254, 0.25));
+      border: 2px solid var(--cyan);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2.2rem;
+      box-shadow: 0 0 20px rgba(0, 229, 255, 0.25);
+    }
+
+    .crew-profile-info h3 {
+      font-size: 1.65rem;
+      font-weight: 900;
+      color: #FFFFFF;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 4px;
+    }
+
+    .crew-handle-tag {
+      font-size: 0.95rem;
+      color: var(--cyan);
+      font-weight: 700;
+      margin-right: 12px;
+    }
+
+    .crew-role-badge {
+      display: inline-block;
+      background: rgba(162, 155, 254, 0.15);
+      color: #C4B5FD;
+      border: 1px solid rgba(162, 155, 254, 0.35);
+      padding: 3px 12px;
+      border-radius: 8px;
+      font-size: 0.82rem;
+      font-weight: 700;
+    }
+
+    .crew-meta-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 14px;
+      margin-bottom: 22px;
+    }
+
+    .crew-meta-cell {
+      background: rgba(0, 0, 0, 0.35);
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      border-radius: 12px;
+      padding: 14px 16px;
+    }
+
+    .crew-meta-cell label {
+      display: block;
+      font-size: 0.74rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: var(--text-sub);
+      margin-bottom: 4px;
+      font-weight: 700;
+    }
+
+    .crew-meta-cell span {
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: #FFFFFF;
+    }
+
+    .crew-director-note {
+      background: rgba(255, 215, 0, 0.06);
+      border: 1px solid rgba(255, 215, 0, 0.25);
+      border-left: 4px solid var(--gold);
+      border-radius: 12px;
+      padding: 16px 20px;
+      margin-bottom: 20px;
+    }
+
+    .crew-director-note h4 {
+      font-size: 0.92rem;
+      font-weight: 800;
+      color: var(--gold);
+      margin-bottom: 6px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .crew-director-note p {
+      color: #CBD5E1;
+      font-size: 0.92rem;
+      line-height: 1.6;
+      margin: 0;
+      font-style: italic;
+    }
+
+    .crew-actions-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 12px;
+      padding-top: 16px;
+      border-top: 1px solid rgba(255, 255, 255, 0.06);
+    }
+
+    .master-roster-box {
+      background: var(--card-bg);
+      border: 1px solid rgba(255, 215, 0, 0.3);
+      border-radius: 18px;
+      padding: 24px;
+      margin-top: 26px;
+    }
+
+    .roster-card-item {
+      background: rgba(0, 0, 0, 0.35);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 12px;
+      padding: 16px 18px;
+      margin-bottom: 12px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 14px;
+    }
+
     /* Grid Sections */
     .grid {
       display: grid;
@@ -732,25 +913,40 @@
       </div>
 
       <div class="crew-lock-box" id="crew-lock-box">
-        <div style="font-size: 40px; margin-bottom: 14px;">🔒</div>
-        <h3 style="font-size: 1.3rem; margin-bottom: 10px;">Crew Passkey Required</h3>
-        <p style="color: var(--text-sub); font-size: 0.9rem; margin-bottom: 24px; line-height: 1.5;">
-          This area contains private shoot schedules, scene scripts, and director notes for accepted crew members who don't use Discord.
+        <div style="font-size: 42px; margin-bottom: 14px;">🔐</div>
+        <h3 style="font-size: 1.35rem; font-weight: 800; margin-bottom: 8px;">Personalized Crew Passkey Required</h3>
+        <p style="color: var(--text-sub); font-size: 0.92rem; margin-bottom: 22px; line-height: 1.6;">
+          Enter your unique crew passkey issued directly by <strong>Krylo</strong> to load your personalized production badge, call times, scene scripts, and director notes.
         </p>
 
-        <div style="display: flex; gap: 10px; max-width: 360px; margin: 0 auto;">
-          <input type="password" id="crew-key-input" class="form-input" placeholder="Enter Crew Key..." />
-          <button class="copy-btn" onclick="unlockCrewDeck()">Unlock</button>
-        </div>
-        <p id="crew-key-error" style="color: #EF4444; font-size: 0.8rem; margin-top: 10px; display: none;">Invalid passkey. Request your key from Krylo.</p>
+        <form onsubmit="handleKeySubmit(event)" style="max-width: 420px; margin: 0 auto;">
+          <div style="display: flex; gap: 10px; margin-bottom: 14px;">
+            <input type="text" id="crew-key-input" class="form-input" placeholder="e.g. CREW-YOURNAME-##" style="text-transform: uppercase; font-weight: 700; letter-spacing: 1px;" required />
+            <button type="submit" class="copy-btn" id="btn-unlock-deck">Unlock Pass</button>
+          </div>
+          <div style="display: flex; align-items: center; justify-content: center; gap: 8px; font-size: 0.85rem; color: var(--text-sub);">
+            <input type="checkbox" id="remember-key" checked style="cursor: pointer;" />
+            <label for="remember-key" style="cursor: pointer;">Remember my key on this browser</label>
+          </div>
+        </form>
+        <p id="crew-key-error" style="color: #EF4444; font-size: 0.85rem; margin-top: 14px; display: none;">
+          ❌ Invalid passkey. Keys are individually issued by Krylo. Contact Krylo if you were accepted into the crew.
+        </p>
       </div>
 
-      <!-- Unlocked Crew Deck -->
+      <!-- Unlocked Personalized Crew Deck -->
       <div class="crew-content" id="crew-content">
+        <!-- Dynamic Personalized Badge Container -->
+        <div id="crew-badge-container"></div>
+
+        <!-- Master Roster Oversight (Only rendered for Krylo / Master Key) -->
+        <div id="master-roster-container"></div>
+
+        <!-- General Production Directives -->
         <div class="briefing-card">
-          <h3>🎬 Production Dispatch: Project Alpha (Scene 1)</h3>
+          <h3>🎬 Production Dispatch: Ongoing Filming Directives</h3>
           <p style="color: #CBD5E1; font-size: 0.95rem; line-height: 1.7;">
-            <strong>Director's Note:</strong> Welcome to the crew! For members collaborating outside Discord, all production script links, asset drives, and call times are pinned right here.
+            <strong>Director's Directive:</strong> Welcome to the Skybase Film Crew! For members collaborating outside Discord, all production script links, asset drives, and call times are pinned right here.
           </p>
         </div>
 
@@ -926,18 +1122,295 @@
       }
     }
 
-    // Unlock Crew Deck
-    function unlockCrewDeck() {
-      const key = document.getElementById('crew-key-input').value.trim();
-      const err = document.getElementById('crew-key-error');
-      // Passkeys supported
-      if (key.toUpperCase() === 'SKYCREW' || key.toUpperCase() === 'SKYBASE2026' || key.toUpperCase() === 'KRYLO') {
-        document.getElementById('crew-lock-box').style.display = 'none';
-        document.getElementById('crew-content').classList.add('unlocked');
-        showToast('🔓 Crew Deck Unlocked! Welcome, Creator.');
-      } else {
-        err.style.display = 'block';
+    // Personalized Crew Roster Database (Synchronized with /api/crew and data/crew-roster.json)
+    const DEFAULT_CREW_ROSTER = [
+      {
+        key: "KRYLO-MASTER",
+        name: "Krylo",
+        handle: "@krylomcyt",
+        role: "👑 Director & Executive Producer",
+        badge: "Master Director",
+        clearance: "Level 5 • High Command Clearance",
+        status: "DIRECTING ACTIVE PRODUCTIONS",
+        assignedProject: "All Active Skybase YouTube Productions",
+        callTime: "Continuous Production Oversight",
+        directorNotes: "Master Director Key. You have full oversight of all current shoot windows, set blueprints, and production scripts.",
+        id: "SKY-DIR-001",
+        isMaster: true
+      },
+      {
+        key: "CREW-ALEX-77",
+        name: "Alex",
+        handle: "@ShadowCrafter",
+        role: "🎬 Lead Actor & Stunt Specialist",
+        badge: "Actor Roster",
+        clearance: "Tier 3 • Verified Production Crew",
+        status: "ACTIVE IN PRODUCTION",
+        assignedProject: "Episode 14: Skybase Invasion (Bridge Chase)",
+        callTime: "Saturday, Oct 3 • 4:00 PM EST (Join 3:45 PM)",
+        directorNotes: "Wear your designated stealth rogue skin. Ensure your Replay Mod keybinds and audio buffer are tested before joining.",
+        id: "SKY-CREW-081",
+        isMaster: false
+      },
+      {
+        key: "CREW-JORDAN-24",
+        name: "Jordan",
+        handle: "@JordanBuilds",
+        role: "🔨 Master Builder & Set Designer",
+        badge: "Builder Roster",
+        clearance: "Tier 3 • Verified Production Crew",
+        status: "ACTIVE IN PRODUCTION",
+        assignedProject: "Arena Stage 3: The Sky Citadel Set",
+        callTime: "Friday Schematic Delivery • 6:00 PM EST",
+        directorNotes: "Schematic files (.litematic or .schem) need to be dropped in the asset drive 24h prior to recording.",
+        id: "SKY-CREW-082",
+        isMaster: false
+      },
+      {
+        key: "CREW-SAM-19",
+        name: "Sam",
+        handle: "@SamEdits",
+        role: "🎞️ Video Editor & Cinematographer",
+        badge: "Editor Roster",
+        clearance: "Tier 3 • Verified Production Crew",
+        status: "ACTIVE IN PRODUCTION",
+        assignedProject: "Manhunt Finale (Pacing & Sound FX)",
+        callTime: "Rough Cut Review: Sunday Evening",
+        directorNotes: "Focus on dynamic speed ramping during the bridge escape sequence. Export at 4K 60FPS Prores.",
+        id: "SKY-CREW-083",
+        isMaster: false
+      },
+      {
+        key: "SKYCREW",
+        name: "Skybase Crew Member",
+        handle: "@SkybaseCreator",
+        role: "🎬 Production Crew Member",
+        badge: "Verified Crew",
+        clearance: "Tier 3 • Verified Crew Clearance",
+        status: "ACTIVE ROSTER",
+        assignedProject: "Upcoming Skybase Video Challenge",
+        callTime: "Check Live Announcements For Next Call",
+        directorNotes: "Welcome to the crew! Your private briefing documents and call times are synchronized below.",
+        id: "SKY-GEN-001",
+        isMaster: false
       }
+    ];
+
+    async function handleKeySubmit(e) {
+      if (e) e.preventDefault();
+      const input = document.getElementById('crew-key-input');
+      const key = input ? input.value.trim() : '';
+      const remember = document.getElementById('remember-key')?.checked;
+      await unlockCrewDeckWithKey(key, remember);
+    }
+
+    async function unlockCrewDeckWithKey(key, remember) {
+      const err = document.getElementById('crew-key-error');
+      const btn = document.getElementById('btn-unlock-deck');
+      if (!key) return;
+
+      if (btn) {
+        btn.disabled = true;
+        btn.innerText = 'Verifying...';
+      }
+      err.style.display = 'none';
+
+      try {
+        const cleanKey = key.trim().toUpperCase();
+        let member = null;
+        let allRoster = null;
+
+        // Try API first
+        try {
+          const res = await fetch('/api/crew', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ key: cleanKey })
+          });
+          if (res.ok) {
+            const data = await res.json();
+            if (data.ok && data.member) {
+              member = data.member;
+              allRoster = data.allRoster;
+            }
+          }
+        } catch (apiErr) {
+          // Fallback to client roster
+        }
+
+        // Client roster fallback
+        if (!member) {
+          const isMasterKey = (cleanKey === 'KRYLO' || cleanKey === 'KRYLO-MASTER' || cleanKey === 'SKYBASE2026');
+          if (isMasterKey) {
+            member = DEFAULT_CREW_ROSTER.find(m => m.isMaster);
+            allRoster = DEFAULT_CREW_ROSTER.filter(m => !m.isMaster);
+          } else {
+            member = DEFAULT_CREW_ROSTER.find(m => m.key && m.key.toUpperCase() === cleanKey);
+          }
+        }
+
+        if (member) {
+          if (remember) {
+            try { localStorage.setItem('skybase_crew_key', cleanKey); } catch (e) {}
+          }
+          renderCrewDashboard(member, allRoster);
+          document.getElementById('crew-lock-box').style.display = 'none';
+          document.getElementById('crew-content').classList.add('unlocked');
+          showToast(`🔓 Welcome aboard, ${member.name}! Pass verified.`);
+        } else {
+          err.style.display = 'block';
+        }
+      } catch (err) {
+        console.error('Crew unlock error:', err);
+        err.style.display = 'block';
+      } finally {
+        if (btn) {
+          btn.disabled = false;
+          btn.innerText = 'Unlock Pass';
+        }
+      }
+    }
+
+    function renderCrewDashboard(m, allRoster) {
+      const container = document.getElementById('crew-badge-container');
+      const masterContainer = document.getElementById('master-roster-container');
+
+      const avatarIcon = m.isMaster ? '👑' : (m.role.includes('Actor') ? '🎭' : (m.role.includes('Build') ? '🔨' : (m.role.includes('Editor') ? '🎞️' : '🎬')));
+
+      container.innerHTML = `
+        <div class="crew-badge-card">
+          <div class="crew-badge-header">
+            <div class="crew-badge-title">
+              <span style="font-size: 1.1rem;">⚡</span>
+              KRYLO'S SKYBASE • PRODUCTION CREW PASS
+            </div>
+            <div style="font-size: 0.78rem; font-weight: 700; color: var(--gold); letter-spacing: 1px; font-family: monospace;">
+              PASS ID: ${escapeHtml(m.id || 'SKY-001')}
+            </div>
+          </div>
+
+          <div class="crew-profile-row">
+            <div class="crew-avatar-box">
+              ${avatarIcon}
+            </div>
+            <div class="crew-profile-info">
+              <h3>
+                ${escapeHtml(m.name)}
+                <span title="Verified Crew Member" style="color: var(--cyan); font-size: 1.15rem; margin-left: 2px;">✓</span>
+              </h3>
+              <div style="display: flex; align-items: center; gap: 8px; flex-wrap: wrap; margin-top: 4px;">
+                <span class="crew-handle-tag">${escapeHtml(m.handle || '')}</span>
+                <span class="crew-role-badge">${escapeHtml(m.role)}</span>
+                <span style="display: inline-flex; align-items: center; gap: 6px; font-size: 0.78rem; font-weight: 700; color: #34D399; background: rgba(52, 211, 153, 0.12); padding: 3px 10px; border-radius: 20px; border: 1px solid rgba(52, 211, 153, 0.3);">
+                  <span style="width: 7px; height: 7px; border-radius: 50%; background: #34D399; box-shadow: 0 0 6px #34D399;"></span>
+                  ${escapeHtml(m.status || 'ACTIVE')}
+                </span>
+              </div>
+            </div>
+          </div>
+
+          <div class="crew-meta-grid">
+            <div class="crew-meta-cell">
+              <label>🛡️ Security Clearance</label>
+              <span>${escapeHtml(m.clearance)}</span>
+            </div>
+            <div class="crew-meta-cell">
+              <label>🎬 Assigned Shoot / Project</label>
+              <span style="color: var(--cyan);">${escapeHtml(m.assignedProject)}</span>
+            </div>
+            <div class="crew-meta-cell">
+              <label>⏰ Next Shoot Call Time</label>
+              <span style="color: var(--gold);">${escapeHtml(m.callTime)}</span>
+            </div>
+            <div class="crew-meta-cell">
+              <label>🔑 Active Passkey</label>
+              <span style="font-family: monospace; letter-spacing: 2px;">••••••••</span>
+            </div>
+          </div>
+
+          <div class="crew-director-note">
+            <h4>
+              <span>👑</span> Personalized Director's Note from Krylo
+            </h4>
+            <p>"${escapeHtml(m.directorNotes)}"</p>
+          </div>
+
+          <div class="crew-actions-row">
+            <button class="copy-btn" onclick="navigator.clipboard.writeText('${escapeHtml(m.callTime)}'); showToast('📋 Call time copied to clipboard!');">
+              📋 Copy My Call Time
+            </button>
+            <button class="copy-btn" style="background: rgba(239, 68, 68, 0.15); border-color: rgba(239, 68, 68, 0.3); color: #F87171;" onclick="lockCrewDeck()">
+              🔒 Lock Pass / Sign Out
+            </button>
+          </div>
+        </div>
+      `;
+
+      if (m.isMaster && allRoster && allRoster.length > 0) {
+        masterContainer.innerHTML = `
+          <div class="master-roster-box">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 18px; flex-wrap: wrap; gap: 10px;">
+              <h3 style="font-size: 1.25rem; font-weight: 800; color: var(--gold); display: flex; align-items: center; gap: 8px;">
+                <span>👑</span> Commander's Active Crew Roster (Director Overview)
+              </h3>
+              <span class="section-badge" style="background: rgba(255, 215, 0, 0.15); color: var(--gold); border: 1px solid rgba(255, 215, 0, 0.4);">
+                ${allRoster.length} Active Crew Members
+              </span>
+            </div>
+            <p style="color: var(--text-sub); font-size: 0.9rem; margin-bottom: 20px;">
+              Every crew member below has their own private passkey issued by you. When they enter their key, they see their personalized name, assigned role, and shoot instructions.
+            </p>
+
+            <div>
+              ${allRoster.map(c => `
+                <div class="roster-card-item">
+                  <div>
+                    <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 4px;">
+                      <strong style="color: #FFFFFF; font-size: 1.05rem;">${escapeHtml(c.name)}</strong>
+                      <span style="color: var(--cyan); font-size: 0.85rem;">${escapeHtml(c.handle)}</span>
+                      <span class="crew-role-badge" style="font-size: 0.75rem;">${escapeHtml(c.role)}</span>
+                    </div>
+                    <div style="font-size: 0.82rem; color: var(--text-sub);">
+                      🎬 Project: <strong style="color: #CBD5E1;">${escapeHtml(c.assignedProject)}</strong> • ⏰ Call: <span style="color: var(--gold); font-weight: 700;">${escapeHtml(c.callTime)}</span>
+                    </div>
+                  </div>
+                  <div style="display: flex; align-items: center; gap: 10px;">
+                    <code style="background: rgba(0, 0, 0, 0.5); padding: 4px 10px; border-radius: 6px; border: 1px solid rgba(0, 229, 255, 0.25); color: var(--cyan); font-weight: 700; font-size: 0.85rem;">
+                      ${escapeHtml(c.key)}
+                    </code>
+                    <button class="copy-btn" style="padding: 6px 12px; font-size: 0.8rem;" onclick="navigator.clipboard.writeText('${escapeHtml(c.key)}'); showToast('🔑 Key ${escapeHtml(c.key)} copied for ${escapeHtml(c.name)}!');">
+                      Copy Key
+                    </button>
+                  </div>
+                </div>
+              `).join('')}
+            </div>
+          </div>
+        `;
+      } else {
+        masterContainer.innerHTML = '';
+      }
+    }
+
+    function lockCrewDeck() {
+      try { localStorage.removeItem('skybase_crew_key'); } catch (e) {}
+      document.getElementById('crew-content').classList.remove('unlocked');
+      document.getElementById('crew-lock-box').style.display = 'block';
+      const input = document.getElementById('crew-key-input');
+      if (input) input.value = '';
+      showToast('🔒 Crew Deck locked.');
+    }
+
+    // Auto-check saved key on startup
+    function checkSavedCrewKey() {
+      try {
+        const saved = localStorage.getItem('skybase_crew_key');
+        if (saved) {
+          const input = document.getElementById('crew-key-input');
+          if (input) input.value = saved;
+          unlockCrewDeckWithKey(saved, true);
+        }
+      } catch (e) {}
     }
 
     function showToast(msg) {
@@ -1019,6 +1492,7 @@
 
     // Initialize
     loadAnnouncements();
+    checkSavedCrewKey();
   </script>
 </body>
 </html>

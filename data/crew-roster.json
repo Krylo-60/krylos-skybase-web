@@ -1,0 +1,72 @@
+[
+  {
+    "key": "KRYLO-MASTER",
+    "name": "Krylo",
+    "handle": "@krylomcyt",
+    "role": "👑 Director & Executive Producer",
+    "badge": "Master Director",
+    "clearance": "Level 5 • High Command Clearance",
+    "status": "DIRECTING ACTIVE PRODUCTIONS",
+    "assignedProject": "All Active Skybase YouTube Productions",
+    "callTime": "Continuous Production Oversight",
+    "directorNotes": "Master Director Key. You have full oversight of all current shoot windows, set blueprints, and production scripts.",
+    "id": "SKY-DIR-001",
+    "isMaster": true
+  },
+  {
+    "key": "CREW-ALEX-77",
+    "name": "Alex",
+    "handle": "@ShadowCrafter",
+    "role": "🎬 Lead Actor & Stunt Specialist",
+    "badge": "Actor Roster",
+    "clearance": "Tier 3 • Verified Production Crew",
+    "status": "ACTIVE IN PRODUCTION",
+    "assignedProject": "Episode 14: Skybase Invasion (Bridge Chase)",
+    "callTime": "Saturday, Oct 3 • 4:00 PM EST (Join 3:45 PM)",
+    "directorNotes": "Wear your designated stealth rogue skin. Ensure your Replay Mod keybinds and audio buffer are tested before joining.",
+    "id": "SKY-CREW-081",
+    "isMaster": false
+  },
+  {
+    "key": "CREW-JORDAN-24",
+    "name": "Jordan",
+    "handle": "@JordanBuilds",
+    "role": "🔨 Master Builder & Set Designer",
+    "badge": "Builder Roster",
+    "clearance": "Tier 3 • Verified Production Crew",
+    "status": "ACTIVE IN PRODUCTION",
+    "assignedProject": "Arena Stage 3: The Sky Citadel Set",
+    "callTime": "Friday Schematic Delivery • 6:00 PM EST",
+    "directorNotes": "Schematic files (.litematic or .schem) need to be dropped in the asset drive 24h prior to recording.",
+    "id": "SKY-CREW-082",
+    "isMaster": false
+  },
+  {
+    "key": "CREW-SAM-19",
+    "name": "Sam",
+    "handle": "@SamEdits",
+    "role": "🎞️ Video Editor & Cinematographer",
+    "badge": "Editor Roster",
+    "clearance": "Tier 3 • Verified Production Crew",
+    "status": "ACTIVE IN PRODUCTION",
+    "assignedProject": "Manhunt Finale (Pacing & Sound FX)",
+    "callTime": "Rough Cut Review: Sunday Evening",
+    "directorNotes": "Focus on dynamic speed ramping during the bridge escape sequence. Export at 4K 60FPS Prores.",
+    "id": "SKY-CREW-083",
+    "isMaster": false
+  },
+  {
+    "key": "SKYCREW",
+    "name": "Skybase Crew Member",
+    "handle": "@SkybaseCreator",
+    "role": "🎬 Production Crew Member",
+    "badge": "Verified Crew",
+    "clearance": "Tier 3 • Verified Crew Clearance",
+    "status": "ACTIVE ROSTER",
+    "assignedProject": "Upcoming Skybase Video Challenge",
+    "callTime": "Check Live Announcements For Next Call",
+    "directorNotes": "Welcome to the crew! Your private briefing documents and call times are synchronized below.",
+    "id": "SKY-GEN-001",
+    "isMaster": false
+  }
+]
