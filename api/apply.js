@@ -12,9 +12,32 @@ export default async function handler(req, res) {
     return res.status(405).json({ error: 'Method not allowed' });
   }
 
-  // Applications Status Toggle
-  const APPLICATIONS_OPEN = false;
-  if (!APPLICATIONS_OPEN) {
+  // Live Dynamic Status Check (Synced with Discord #crew-apply)
+  let applicationsOpen = false;
+  const token = process.env.DISCORD_TOKEN;
+  if (token) {
+    try {
+      const channelId = '1550902305568718948';
+      const checkRes = await fetch(`https://discord.com/api/v10/channels/${channelId}/messages?limit=5`, {
+        headers: { Authorization: `Bot ${token}` }
+      });
+      if (checkRes.ok) {
+        const msgs = await checkRes.json();
+        const appMsg = msgs.find(m => m.embeds && m.embeds.length > 0);
+        if (appMsg && appMsg.embeds[0]) {
+          const desc = appMsg.embeds[0].description || '';
+          const title = appMsg.embeds[0].title || '';
+          if (desc.includes('NOW OPEN!') || title.includes('Official Production Crew Applications')) {
+            applicationsOpen = true;
+          }
+        }
+      }
+    } catch (e) {
+      console.error('Dynamic status check error:', e.message);
+    }
+  }
+
+  if (!applicationsOpen) {
     return res.status(403).json({
       ok: false,
       error: 'Crew applications are currently closed as the video production roster is at full capacity. Please keep an eye on announcements for when auditions reopen!'
